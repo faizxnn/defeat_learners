@@ -1,18 +1,4 @@
-Here’s a more concise and code-focused version of your README:
 
----
-
-# Decision Tree vs. Linear Regression Showdown 🌳⚡📈
-
-*Strategic data generation to exploit model strengths/weaknesses*
-
-## 🚀 Key Features
-- **Dueling Data Generators**: Datasets with 2x+ performance advantage for target model
-- **Model Psychology**: Exploit algorithmic assumptions
-- **Deterministic Testing**: Seed-controlled reproducibility
-- **Stress Testing**: 15-round validation per dataset type
-
----
 
 ## 🧠 Data Generation
 
