@@ -1,6 +1,7 @@
 
+in this project, i generated datasets specifically designed to exploit the strengths and weaknesses of linear regression and decision tree learners. my goal was to create data where one model consistently outperforms the other, using controlled randomness to ensure reproducibility.
 
-## 🧠 Data Generation
+
 
 ### 1. Linear Regression Data (`best_4_lin_reg`)
 ```python
@@ -49,4 +50,4 @@ X_tree = np.random.rand(1000, 10)
 
 ---
 
-*"Quality data → Quality insights"*
+moral of the story, quality data = quality insights ! 
