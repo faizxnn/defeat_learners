@@ -1,71 +1,66 @@
- Decision Tree vs. Linear Regression Showdown 🌳⚡📈
+Here’s a more concise and code-focused version of your README:
 
-*A strategic data generation system that exploits model strengths/weaknesses*
+---
+
+# Decision Tree vs. Linear Regression Showdown 🌳⚡📈
+
+*Strategic data generation to exploit model strengths/weaknesses*
 
 ## 🚀 Key Features
-- **Dueling Data Generators**: Create datasets that give 2x+ performance advantage to target model
-- **Model Psychology**: Exploit fundamental algorithm assumptions
+- **Dueling Data Generators**: Datasets with 2x+ performance advantage for target model
+- **Model Psychology**: Exploit algorithmic assumptions
 - **Deterministic Testing**: Seed-controlled reproducibility
-- **Production-Grade Validation**: 15-round stress tests per dataset type
+- **Stress Testing**: 15-round validation per dataset type
 
 ---
 
-## 🧠 Strategic Implementation
+## 🧠 Data Generation
 
-### 1. Linear Regression Optimized Data (`best_4_lin_reg`)
+### 1. Linear Regression Data (`best_4_lin_reg`)
+```python
+# Strong linear signal (95% variance) + Gaussian noise (σ=3)
+y = np.dot(X, coefficients) + np.random.normal(0, 3, X.shape[0])
+# Hidden non-linear test
+y += 0.01 * X[:, 0]**2 - 0.005 * (X[:, 1] * X[:, 2])
+```
 
-**Design Rationale**:
-- Strong linear signal (95% variance)
-- Low-magnitude non-linear residuals (5%)
-- Gaussian noise (σ=3) within model assumptions
-
-### 2. Decision Tree Optimized Data (`best_4_dt`)
-
-**Design Rationale**:
-- Nested conditional logic (3 levels deep)
-- Mixed non-linear operations (log, sin, square)
-- Discontinuous decision boundaries
-- Minimal noise (σ=0.1)
+### 2. Decision Tree Data (`best_4_dt`)
+```python
+# Nested conditional logic + non-linear operations
+y = np.log(X[:, 0]) + np.sin(X[:, 1]) + (X[:, 2]**2) * (X[:, 3] > 0.5)
+# Minimal noise (σ=0.1)
+y += np.random.normal(0, 0.1, X.shape[0])
+```
 
 ---
 
-## 📊 Performance Validation
+## 📊 Performance Metrics
 
 | Metric                | Linear Data | Tree Data |
 |-----------------------|-------------|-----------|
-| Required Win Rate     | 66.7%       | 66.7%     |
-| Achieved Win Rate     | 86.7%       | 80.0%     |
+| Win Rate              | 86.7%       | 80.0%     |
 | Avg RMSE Ratio        | 0.44×       | 0.15×     |
-| Max Feature Dimension | 5           | 10        |
+| Max Features          | 5           | 10        |
 
 ---
 
 ## 🛠️ Engineering Highlights
 
-### Decision Tree Core Algorithm
+### Seed Control
+```python
+np.random.seed(seed)  # Full reproducibility
+assert np.all(data1 == data2)  # Consistency check
+```
 
-## 📚 Implementation Insights
+### Dimensional Strategy
+```python
+# Linear: 5 features to prevent underfitting
+X_linear = np.random.rand(1000, 5)
 
-1. **Noise Engineering**  
-   - Linear data: Additive Gaussian (σ=3)
-   - Tree data: Minimal noise (σ=0.1) to prevent memorization
-
-2. **Dimensional Strategy**  
-   - Linear: 5 features (prevents underfitting)
-   - Tree: 10 features (enables complex splits)
-
-3. **Non-linear Injections**  
-   ```python
-   # Hidden in linear data to test model robustness
-   y += 0.01*X[:,0]**2 - 0.005*(X[:,1]*X[:,2])
-   ```
-
-4. **Seed Control System**  
-   ```python
-   np.random.seed(seed)  # Full reproducibility
-   assert np.all(data1 == data2)  # Seed consistency check
-   ```
+# Tree: 10 features for complex splits
+X_tree = np.random.rand(1000, 10)
+```
 
 ---
 
-*"The quality of your data determines the quality of your insights"* - Project Mantra
+*"Quality data → Quality insights"*
