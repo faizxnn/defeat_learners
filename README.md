@@ -1,6 +1,4 @@
 
-in this project, i generated datasets specifically designed to exploit the strengths and weaknesses of linear regression and decision tree learners. my goal was to create data where one model consistently outperforms the other, using controlled randomness to ensure reproducibility.
-
 
 
 ### 1. Linear Regression Data (`best_4_lin_reg`)
@@ -21,7 +19,7 @@ y += np.random.normal(0, 0.1, X.shape[0])
 
 ---
 
-## 📊 Performance Metrics
+## Performance Metrics
 
 | Metric                | Linear Data | Tree Data |
 |-----------------------|-------------|-----------|
@@ -31,7 +29,7 @@ y += np.random.normal(0, 0.1, X.shape[0])
 
 ---
 
-## 🛠️ Engineering Highlights
+## Engineering Highlights
 
 ### Seed Control
 ```python
